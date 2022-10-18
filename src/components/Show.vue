@@ -1,30 +1,28 @@
 <template>
-  <div>
-    <FatherSlot></FatherSlot>
-  </div>
-  <div>
-    <hr>
-    作用域插槽
-    <Child :names="names">
-      <template v-slot="slotProps">
-        <button>{{slotProps.Name}}---{{slotProps.index}}</button>
-      </template>
-    </Child>
+ <div>
+  父组件
+  <button @click="btnClick">获取子组件信息</button>
+  <nav-bar ref="navbar"></nav-bar>
+  
   </div>
 </template>
 
 <script>
-import FatherSlot from './FatherSlot.vue'
-import Child from './Child.vue'
+ import NavBar from './NavBar.vue'
 export default {
 name:'Show',
 components: {
-  FatherSlot,
-  Child
+ NavBar
 },
 data(){
   return {
-    names:['why','tom','jeery','john']
+  message: '这是父组件信息'
+  }
+},
+methods: {
+  btnClick(){
+    //获取子组件的实例
+    console.log(this.$refs.navbar.message);
   }
 }
 }
