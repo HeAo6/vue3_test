@@ -38,6 +38,7 @@ name:'Show',
   },{
     flush : "post"
   })
+  
   const btnClick = () => {
     fristName.value = 'james'
     console.log(fullName);
